@@ -1,6 +1,10 @@
 import "./Navbar.css"
 import  {NavLink} from   "react-router-dom";
 
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url)
+
+// import logo from "../../../public/images/logo.png";
 function Navbar() {
   return (
   
@@ -9,7 +13,7 @@ function Navbar() {
       <nav className="navbar bg-dark navbar-expand-lg ">
         
   <div className="container-fluid container-xxl">
-    <a className="navbar-brand" href="#">  <img src="./public/images/logo.png" alt="logo-picture" />
+    <a className="navbar-brand" href="#">  <img src={'public/images/logo.png'} alt="logo-picture" />
 </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />

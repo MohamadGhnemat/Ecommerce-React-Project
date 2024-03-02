@@ -14,6 +14,7 @@ import './categories.css';
 
 
 import { EffectCube } from 'swiper/modules';
+
 function Products() {
   const [products,setProducts] = useState([]);
   const getProducts = async () => {
