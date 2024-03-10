@@ -64,6 +64,10 @@ function App() {
         element: <SignUp />
       },
       {
+        path: "/products/category/:id",
+        element: <Products  />
+      },
+      {
         path: "*",
         element:  <NotFound />,
       },

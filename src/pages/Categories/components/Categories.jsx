@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import {  Pagination } from 'swiper/modules';
 
+import {  NavLink, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -18,14 +19,17 @@ import { EffectCube } from 'swiper/modules';
 function Products() {
   const [products,setProducts] = useState([]);
   const getProducts = async () => {
-    const {data} = await axios.get('https://ecommerce-node4.vercel.app/categories/active?page=1&limit=10')
+    const {data} = await axios.get(`${import.meta.env.VITE_API}/categories/active?page=1&limit=10`)
     console.log(data.categories);
     setProducts(data.categories);
   }
  useEffect( () => {
     getProducts()   
 } , [])
+
+
   return (
+    
     <div className="categories">
     <Swiper
     effect={'cube'}
@@ -40,11 +44,13 @@ function Products() {
     modules={[EffectCube, Pagination]}
     className="mySwiper"
   >
-    
+        
+
        {products.map( product => (
+        //  onClick={() => getProductsFromCategories(product._id)}
         <SwiperSlide key={product._id}>
-       
-        <img src={product.image.secure_url} alt="product-picture" />
+        <NavLink to={'/products/category/'+product._id}><img src={product.image.secure_url}   alt="product-picture"      
+ /></NavLink>
         </SwiperSlide>
       )
         )}
